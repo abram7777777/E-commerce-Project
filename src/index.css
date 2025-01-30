@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 .active{
-    
+   color : #3aa73a !important ; 
 }
+
+
+
