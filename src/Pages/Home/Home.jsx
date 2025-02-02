@@ -1,7 +1,12 @@
+import CategorySlider from '../../Copmonents/CategorySlider/CategorySlider'
+import MainSlider from '../../Copmonents/MainSlider/MainSlider'
 import styles from './Home.module.css'
 
 export default function Home() {
   return (
-    <div className='text-9xl mt-20'>Home</div>
+    <div className='mt-20'>
+    <MainSlider/>
+    <CategorySlider/>
+    </div>
   )
 }

@@ -5,6 +5,20 @@
 .active{
    color : #3aa73a !important ; 
 }
+.slick-dots li button:before {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 10px !important;
+   height: 5px !important;
+   border-radius: 35%;
+   content: ' ' !important;
+   text-align: center;
+   opacity: .25;
+   background-color: black;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
 
 
 
