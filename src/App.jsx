@@ -12,6 +12,8 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import NotFound from './Pages/NotFound/NotFound'
 import TokenContextProvider from './Context/TokenContext'
 import ProtectedRouts from './Copmonents/ProtectedRouts/ProtectedRouts'
+import { RiWifiOffLine } from 'react-icons/ri'
+import { Offline } from 'react-detect-offline'
 
 export default function App() {
 
@@ -25,7 +27,7 @@ export default function App() {
       {path : "brands" , element : <ProtectedRouts><Brands/></ProtectedRouts>},
       {path : "login" , element : <Login/>},
       {path : "register" , element : <Register/>},
-      {path : "productdetails" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
+      {path : "productdetails/:prouductId" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
       {path : "*" , element : <NotFound/>}
     ]
   }])
@@ -33,6 +35,11 @@ export default function App() {
   return (
 
     <TokenContextProvider>
+                  <Offline>
+                    <div className='fixed bottom-3 right-3 z-30 bg-red-200 rounded-xl p-5 px-7 '>
+                    <RiWifiOffLine className='inline-block me-2' /> You Are Offline Now !
+                    </div>
+                  </Offline>
           <RouterProvider router={routes}></RouterProvider> 
     </TokenContextProvider>
 

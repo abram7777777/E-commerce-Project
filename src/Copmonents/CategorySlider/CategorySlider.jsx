@@ -78,13 +78,13 @@ export default function CategorySlider() {
   
 
   return (
-    <div className='w-[92%] mx-auto my-11'>
-      <h3 className='font-medium text-2xl my-2 text-gray-800'>Shop Popular Categories</h3>
+    <div className=' my-11'>
+      <h3 className='font-medium text-3xl my-3 text-gray-800'>Shop Popular Categories</h3>
       <Slider {...settings}>
         {categories.map((category)=>(
           <div key={category._id}>
-            <img src={category.image} className='w-full h-[300px]' alt={category.name} />
-            <h4 className='font-semibold my-2 text-gray-700'>{category.name}</h4>
+            <img src={category.image} className='w-full h-[350px]' alt={category.name} />
+            <h4 className='font-semibold my-2 text-gray-900'>{category.name}</h4>
           </div>
         ))}
       </Slider>

@@ -20,7 +20,7 @@ export default function MainSlider() {
   
 
   return (
-    <div className='w-[92%] mx-auto my-11 flex'>
+    <div className=' my-11 flex'>
       <div className='lg:w-3/4 w-full'>
       <Slider {...settings}>
         <div>

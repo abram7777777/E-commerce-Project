@@ -5,6 +5,7 @@ import * as Yup from "yup"
 import axios from 'axios'
 import { useContext, useState } from 'react'
 import { TokenContext } from '../../Context/TokenContext'
+import { Helmet } from 'react-helmet'
 
 export default function Login() {
 
@@ -52,6 +53,9 @@ export default function Login() {
   return (
 
     <section className=' w-3/4 mx-auto  p-4 mt-16'>
+                  <Helmet>
+                <title>FreshCart-Login</title>
+                  </Helmet>
 <h1 className='text-3xl text-gray-900 font-bold my-5'>Register Now :</h1>
 {errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
 <form className="" onSubmit={formik.handleSubmit}>
@@ -67,10 +71,10 @@ export default function Login() {
     {(formik.touched.password && formik.errors.password) && (<small className='text-red-500'>{formik.errors.password}</small>)}
   </div>
 
-{isloading ? (<button type="button" disabled className="disabled:bg-green-300  text-white bg-main font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11">loading ...</button>
-):(<button type="submit" disabled={!formik.isValid} className="disabled:bg-green-300  text-white bg-main hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Login</button>
+{isloading ? (<button type="button" disabled className="disabled:bg-green-300  text-white bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11">loading ...</button>
+):(<button type="submit" disabled={!formik.isValid} className="disabled:bg-green-300  text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Login</button>
 )}
-<small className='ml-1'>Create an Account <Link to={"/register"} rel="stylesheet" className='underline hover:text-main'>Register </Link> </small>
+<small className='ml-1'>Create an Account <Link to={"/register"} rel="stylesheet" className='underline hover:text-green-500'>Register </Link> </small>
 </form>
 
     </section>

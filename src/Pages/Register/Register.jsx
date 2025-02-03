@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 
 export default function Register() {
 
@@ -54,6 +55,9 @@ export default function Register() {
   return (
 
     <section className=' w-3/4 mx-auto  p-4 mt-16'>
+                  <Helmet>
+                <title>FreshCart-Home</title>
+                  </Helmet>
 <h1 className='text-3xl font-bold my-5 text-gray-900'>Register Now :</h1>
 {errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
 <form className="" onSubmit={formik.handleSubmit}>
@@ -82,10 +86,10 @@ export default function Register() {
     <input type="tel" id="phone" name='phone' value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur}  className="outline-none rounded-lg border-b-2  focus:border-green-400 text-gray-700 text-sm block w-full p-2.5" placeholder="Enter Your Phone" required />
     {(formik.touched.phone && formik.errors.phone) && (<small className='text-red-500'>{formik.errors.phone}</small>)}
   </div>
-{isloading ? (<button type="button" disabled className="disabled:bg-green-300 text-white bg-main font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11">loading ...</button>
-):(<button type="submit" disabled={!formik.isValid} className="disabled:bg-green-300 text-white bg-main hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Register</button>
+{isloading ? (<button type="button" disabled className="disabled:bg-green-300 text-white bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11">loading ...</button>
+):(<button type="submit" disabled={!formik.isValid} className="disabled:bg-green-300 text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Register</button>
 )}
-<small className='ml-1'>Already you have an account <Link to={"/login"} rel="stylesheet" className='underline hover:text-main'>Login </Link> </small>
+<small className='ml-1'>Already you have an account <Link to={"/login"} rel="stylesheet" className='underline hover:text-green-500'>Login </Link> </small>
 </form>
 
     </section>

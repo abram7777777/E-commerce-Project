@@ -15,9 +15,9 @@ export default function Footer() {
       <p className='font-normal text-gray-500 my-3 '>We will send you a link , open it on your phone to download the app. </p>
       <div className=' lg:flex  lg:gap-[2%] lg:justify-center border-b-2 pb-7'>
       <input type="email" id="email" className="outline-none rounded-lg border-b-2  focus:border-green-400 text-gray-700 text-sm block w-full lg:w-[79%] p-2.5" placeholder="Email .." required />
-      <button type="button" className="w-full mt-5 lg:mt-0 lg:w-[15%] text-white bg-main hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5  transition-all duration-300">Share App Link</button>
+      <button type="button" className="w-full mt-5 lg:mt-0 lg:w-[15%] text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5  transition-all duration-300">Share App Link</button>
       </div>
-      <div className='lg:flex border-b-2 items-center justify-between px-5 mb-11'>
+      <div className='lg:flex border-b-2 items-center justify-between px-5 my-11 mt-7 lg:mt-0 '>
         <div className='flex gap-5 justify-center'>
         <p className='font-medium text-gray-700'>Payment Partners </p>
         <img src={amazonLogo} className='w-11 h-9' alt="amazonLogo" />
