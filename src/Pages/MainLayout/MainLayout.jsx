@@ -7,7 +7,9 @@ export default function MainLayout() {
   return (
     <>
     <Navbar/>
+    <div className='mt-[72px]'>
     <Outlet/>
+    </div>
     <Footer/>
     </>
   )

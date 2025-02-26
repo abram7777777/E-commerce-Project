@@ -5,6 +5,9 @@ import MainSlider from '../../Copmonents/MainSlider/MainSlider'
 import styles from './Home.module.css'
 
 export default function Home() {
+
+  console.log("Hello");
+  
   return (
     <div className='mt-20 w-[92%] mx-auto'>
                   <Helmet>

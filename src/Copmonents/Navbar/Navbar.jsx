@@ -6,11 +6,14 @@ import imgeLogo from "../../assets/freshcart-logo.svg"
 import { FaFacebook, FaInstagram, FaLinkedin, FaRegHeart, FaTiktok, FaYoutube } from 'react-icons/fa'
 import { IoLogoTwitter } from 'react-icons/io'
 import { IoCartOutline } from 'react-icons/io5'
+import { use } from 'react'
+import { CartContext } from '../../Context/CartContext'
 
 export default function Navbar() {
 
 
   const {token , setToken} = useContext(TokenContext)
+  const {numCartItems} = useContext(CartContext)
   const navigate = useNavigate()
   function logoutUser(){
     localStorage.removeItem("token")
@@ -34,9 +37,6 @@ export default function Navbar() {
           <NavLink to={"/"} className="block pb-2 lg:py-2 px-3 text-gray-500 font-normal hover:text-green-500 border-b-2 lg:border-0 text-center">Home</NavLink>
         </li>
         <li>
-          <NavLink to={"cart"} className="block py-2 px-3 text-gray-500 font-normal hover:text-green-500 border-b-2 lg:border-0 text-center">Cart</NavLink>
-        </li>
-        <li>
           <NavLink to={"products"} className="block py-2 px-3 text-gray-500 font-normal hover:text-green-500 border-b-2 lg:border-0 text-center">Products</NavLink>
         </li>
         <li>
@@ -57,7 +57,7 @@ export default function Navbar() {
       <FaLinkedin className='lg:flex hidden hover:text-green-500'/>
       <FaYoutube className='lg:flex hidden hover:text-green-500'/>
       {
-        token && <><NavLink to={""} ><IoCartOutline className='text-3xl flex hover:text-green-500'/></NavLink> <NavLink to={""}><FaRegHeart className='text-2xl flex hover:text-green-500' /></NavLink></>
+        token && <><NavLink to={"cart"} className="relative" ><IoCartOutline className='text-3xl flex hover:text-green-500'/> <span className='absolute w-3 h-3 flex justify-center items-center rounded-full bg-green-300 p-2 -top-2 -right-2'>{numCartItems}</span></NavLink> <NavLink to={""}><FaRegHeart className='text-2xl flex hover:text-green-500' /></NavLink></>
       }
       </div>
 

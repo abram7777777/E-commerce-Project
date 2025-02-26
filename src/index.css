@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   background-color: tomato !important;
+}
 .active{
    color : #3aa73a !important ; 
 }

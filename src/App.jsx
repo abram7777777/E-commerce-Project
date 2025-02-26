@@ -14,6 +14,10 @@ import TokenContextProvider from './Context/TokenContext'
 import ProtectedRouts from './Copmonents/ProtectedRouts/ProtectedRouts'
 import { RiWifiOffLine } from 'react-icons/ri'
 import { Offline } from 'react-detect-offline'
+import CartContextProvider from './Context/CartContext'
+import { Toaster } from 'react-hot-toast'
+import CheckOut from './Pages/CheckOut/CheckOut'
+import Allorders from './Pages/Allorders/Allorders'
 
 export default function App() {
 
@@ -25,6 +29,8 @@ export default function App() {
       {path : "products" , element : <ProtectedRouts><Products/></ProtectedRouts>},
       {path : "categories" , element : <ProtectedRouts><Categories/></ProtectedRouts>},
       {path : "brands" , element : <ProtectedRouts><Brands/></ProtectedRouts>},
+      {path : "checkout" , element : <ProtectedRouts><CheckOut/></ProtectedRouts>},
+      {path : "allorders" , element : <ProtectedRouts><Allorders/></ProtectedRouts>},
       {path : "login" , element : <Login/>},
       {path : "register" , element : <Register/>},
       {path : "productdetails/:prouductId" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
@@ -35,12 +41,15 @@ export default function App() {
   return (
 
     <TokenContextProvider>
+      <CartContextProvider>
                   <Offline>
                     <div className='fixed bottom-3 right-3 z-30 bg-red-200 rounded-xl p-5 px-7 '>
                     <RiWifiOffLine className='inline-block me-2' /> You Are Offline Now !
                     </div>
                   </Offline>
+                  <Toaster position='bottom-right' />
           <RouterProvider router={routes}></RouterProvider> 
+      </CartContextProvider>
     </TokenContextProvider>
 
   )
