@@ -18,6 +18,9 @@ import CartContextProvider from './Context/CartContext'
 import { Toaster } from 'react-hot-toast'
 import CheckOut from './Pages/CheckOut/CheckOut'
 import Allorders from './Pages/Allorders/Allorders'
+import SpaCategory from './Pages/SpaCategory/SpaCategory'
+import ComingSoon from './Pages/ComingSoon/ComingSoon'
+import SpaBrand from './Pages/SpaBrand/SpaBrand'
 
 export default function App() {
 
@@ -31,9 +34,12 @@ export default function App() {
       {path : "brands" , element : <ProtectedRouts><Brands/></ProtectedRouts>},
       {path : "checkout" , element : <ProtectedRouts><CheckOut/></ProtectedRouts>},
       {path : "allorders" , element : <ProtectedRouts><Allorders/></ProtectedRouts>},
+      {path : "comingsoon" , element : <ProtectedRouts><ComingSoon/></ProtectedRouts>},
       {path : "login" , element : <Login/>},
       {path : "register" , element : <Register/>},
       {path : "productdetails/:prouductId" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
+      {path : "spacategory/:categoryId" , element : <ProtectedRouts><SpaCategory/></ProtectedRouts>},
+      {path : "spabrand/:brandId" , element : <ProtectedRouts><SpaBrand/></ProtectedRouts>},
       {path : "*" , element : <NotFound/>}
     ]
   }])
