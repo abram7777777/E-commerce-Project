@@ -3,6 +3,10 @@ import CategorySlider from '../../Copmonents/CategorySlider/CategorySlider'
 import LatestProudcts from '../../Copmonents/LatestProudcts/LatestProudcts'
 import MainSlider from '../../Copmonents/MainSlider/MainSlider'
 import styles from './Home.module.css'
+import Electronics from '../../Copmonents/Electronics/Electronics'
+import BestCategories from '../../Copmonents/BestCategories/BestCategories'
+import WhyUs from '../../Copmonents/WhyUs/WhyUs'
+import BrandSlider from '../../Copmonents/BrandsSlider/BrandSlider'
 
 export default function Home() {
 
@@ -14,8 +18,12 @@ export default function Home() {
                 <title>FreshCart-Home</title>
                   </Helmet>
     <MainSlider/>
-    <CategorySlider/>
-    <LatestProudcts/>
+    {/* <CategorySlider/> */}
+    {/* <LatestProudcts/> */}
+    <BestCategories/>
+    <BrandSlider/>
+    <Electronics/>
+    <WhyUs/>
     </div>
   )
 }
