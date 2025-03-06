@@ -11,6 +11,7 @@ import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import ComingSoon from '../ComingSoon/ComingSoon'
 import ProductItem from '../../Copmonents/ProductItem/ProductItem'
+import { WishListContext } from '../../Context/WishListContext'
 
 export default function SpaCategory() {
 
@@ -19,6 +20,8 @@ export default function SpaCategory() {
     const [products, setProducts] = useState([])
     const [spaCategory, setSpaCategory] = useState([])
     const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
+      const {addToWishList , setNumWishItems} = useContext(WishListContext)
+    
     
 
     
@@ -41,6 +44,16 @@ export default function SpaCategory() {
           toast.success(res.message)
           setNumCartItems(res.numOfCartItems);
           setCartId(res.cartId);
+        }else{
+          toast.error("Something Wrong")
+        }
+      }
+
+      async function addWish(id) {
+        let res = await addToWishList(id)
+        if(res.status === "success"){
+          toast.success(res.message) 
+          setNumWishItems((res.data?.length));       
         }else{
           toast.error("Something Wrong")
         }
@@ -71,7 +84,7 @@ export default function SpaCategory() {
                     </h2>
     {spaCategory.length > 0 ? <div className='flex flex-wrap mx-11'>
       {spaCategory.length > 0 ? spaCategory.map((scategory) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={scategory.id}>
-      <ProductItem product = {scategory} addProduct = {addProduct}/>
+      <ProductItem product = {scategory} addProduct = {addProduct} addWish = {addWish}/>
       </div>)):<Loader/>}
     </div> : <ComingSoon/>  
     }

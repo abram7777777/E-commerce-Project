@@ -11,6 +11,7 @@ import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import ComingSoon from '../ComingSoon/ComingSoon'
 import ProductItem from '../../Copmonents/ProductItem/ProductItem'
+import { WishListContext } from '../../Context/WishListContext'
 
 export default function SpaBrand() {
 
@@ -18,7 +19,9 @@ export default function SpaBrand() {
     const [brand, setBrand] = useState({})
     const [products, setProducts] = useState([])
     const [spabrand, setSpaBrand] = useState([])
-    const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)    
+    const {addToCart , setNumCartItems , setCartId} = useContext(CartContext) 
+      const {addToWishList , setNumWishItems} = useContext(WishListContext)
+       
 
     
 
@@ -45,6 +48,17 @@ export default function SpaBrand() {
         }
       }
 
+      async function addWish(id) {
+        let res = await addToWishList(id)
+        if(res.status === "success"){
+          toast.success(res.message) 
+          setNumWishItems((res.data?.length));       
+        }else{
+          toast.error("Something Wrong")
+        }
+      }
+    
+
 
         useEffect(() => {
           getSpaBrand()
@@ -70,7 +84,7 @@ export default function SpaBrand() {
                     </h2>
     {spabrand.length > 0 ? <div className='flex flex-wrap mx-11'>
       {spabrand.length > 0 ? spabrand.map((sbrand) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={sbrand.id}>
-      <ProductItem product = {sbrand} addProduct = {addProduct}/>
+      <ProductItem product = {sbrand} addProduct = {addProduct} addWish = {addWish}/>
       </div>)):<Loader/>}
     </div> : <ComingSoon/>  
     }

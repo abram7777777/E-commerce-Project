@@ -21,6 +21,8 @@ import Allorders from './Pages/Allorders/Allorders'
 import SpaCategory from './Pages/SpaCategory/SpaCategory'
 import ComingSoon from './Pages/ComingSoon/ComingSoon'
 import SpaBrand from './Pages/SpaBrand/SpaBrand'
+import WishListContextProvider from './Context/WishListContext'
+import WishList from './Pages/WishList/WishList'
 
 export default function App() {
 
@@ -29,6 +31,7 @@ export default function App() {
     children : [
       {index : true , element : <ProtectedRouts><Home/></ProtectedRouts>},
       {path : "cart" , element : <ProtectedRouts><Cart/></ProtectedRouts>},
+      {path : "wishlist" , element : <ProtectedRouts><WishList/></ProtectedRouts>},
       {path : "products" , element : <ProtectedRouts><Products/></ProtectedRouts>},
       {path : "categories" , element : <ProtectedRouts><Categories/></ProtectedRouts>},
       {path : "brands" , element : <ProtectedRouts><Brands/></ProtectedRouts>},
@@ -48,6 +51,7 @@ export default function App() {
 
     <TokenContextProvider>
       <CartContextProvider>
+        <WishListContextProvider>
                   <Offline>
                     <div className='fixed bottom-3 right-3 z-30 bg-red-200 rounded-xl p-5 px-7 '>
                     <RiWifiOffLine className='inline-block me-2' /> You Are Offline Now !
@@ -55,6 +59,7 @@ export default function App() {
                   </Offline>
                   <Toaster position='bottom-right' />
           <RouterProvider router={routes}></RouterProvider> 
+          </WishListContextProvider>
       </CartContextProvider>
     </TokenContextProvider>
 

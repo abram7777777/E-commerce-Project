@@ -16,8 +16,6 @@ export default function Cart() {
   async function getData() {
     let data = await getLoggedCartData()
     setCartData(data.data)
-    console.log(data.data, "getDataaaa");
-
   }
 
   async function deleteItem(id) {
@@ -55,8 +53,11 @@ export default function Cart() {
 
       {cartData ? <>
         <div className='flex justify-between'>
-          <h4 className='font-bold text-2xl text-gray-900'>Shopping Cart</h4>
-          <div className='flex items-center gap-36'>
+        <h2 class="text-4xl sm:text-5xl relative w-fit font-extrabold dark:text-slate-100 text-gray-800 group cursor-default ">
+                Shopping Cart
+            <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
+            </span>
+        </h2>          <div className='flex items-center gap-36'>
           <h5>
             <span className='text-gray-900 font-bold'>Total Price : </span>
             {cartData.totalCartPrice ? cartData.totalCartPrice : "0"} EGP

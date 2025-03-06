@@ -8,6 +8,7 @@ import { IoCartOutline } from 'react-icons/io5'
 import { Helmet } from 'react-helmet'
 import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
+import { WishListContext } from '../../Context/WishListContext'
 
 
 const settings = {
@@ -24,6 +25,8 @@ export default function ProductDetails() {
 const [details, setDetails] = useState({})
 const {prouductId} = useParams()
 const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
+  const {addToWishList} = useContext(WishListContext)
+
 
   async function getProductDetails() {
     await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${prouductId}`).then((res)=>{setDetails(res.data.data)}).catch((err)=>{err})
@@ -39,6 +42,16 @@ const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
       toast.error("Something Wrong")
     }
   }
+
+  async function addWish(id) {
+    let res = await addToWishList(id)
+    if(res.status === "success"){
+      toast.success(res.message)        
+    }else{
+      toast.error("Something Wrong")
+    }
+  }
+
 
   useEffect(() => {
     getProductDetails()
@@ -71,7 +84,7 @@ const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
 
           <div className='flex my-5 border-b-2 pb-7'>
             <button onClick={()=>{addProduct(details.id)}} className='w-[90%] bg-gradient-to-r from-green-300 to-green-500 text-white hover:bg-gradient-to-r hover:from-green-500 hover:to-green-300 rounded-full font-bold transition-all duration-700 py-3 '><IoCartOutline className='inline-block me-2 text-2xl' />Add to cart</button>
-            <div className='w-[50px] bg-green-500 rounded-full flex justify-center items-center ms-3 text-white text-2xl hover:text-green-500 hover:bg-white hover:border-green-500 hover:border-2 transition-all duration-300'><FaRegHeart /></div>
+            <button onClick={()=>{addWish(details.id)} } className='w-[50px] hover:bg-green-500 rounded-full flex justify-center items-center ms-3 hover:text-gray-500 text-2xl text-gray-300 bg-white border-green-500 border-2 transition-all duration-300'><FaRegHeart /></button>
           </div>
           <p className='font-bold mb-5' >Category : <span className='font-normal text-gray-600 '>{details.category?.name}</span></p>
           <p className='font-bold mb-5'>Brand : <span className='font-normal text-gray-600 '>{details.brand?.name}</span></p>

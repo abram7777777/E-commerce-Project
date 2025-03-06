@@ -10,12 +10,15 @@ import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import ProductItem from '../ProductItem/ProductItem'
+import { WishListContext } from '../../Context/WishListContext'
 
 export default function Electronics() {
 
     const [products, setProducts] = useState([])
     const [electronics, setElectronics] = useState([])
     const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
+      const {addToWishList , setNumWishItems} = useContext(WishListContext)
+    
     
     
     
@@ -37,6 +40,17 @@ export default function Electronics() {
         }
       }
 
+      async function addWish(id) {
+        let res = await addToWishList(id)
+        if(res.status === "success"){
+          toast.success(res.message)
+          setNumWishItems((res.data?.length));        
+        }else{
+          toast.error("Something Wrong")
+        }
+      }
+
+
               useEffect(() => {
                   getProuducts()
               }, [])
@@ -56,7 +70,7 @@ export default function Electronics() {
 
 <div className='flex flex-wrap mx-3 justify-center mb-16'>
       {electronics.length > 0 ? electronics.map((electronic) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={electronic.id}>
-      <ProductItem product = {electronic} addProduct = {addProduct}/>
+      <ProductItem product = {electronic} addProduct = {addProduct} addWish = {addWish}/>
       </div>)):<Loader/>}
 
 </div>

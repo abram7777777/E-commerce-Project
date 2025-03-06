@@ -8,12 +8,14 @@ import { IoLogoTwitter } from 'react-icons/io'
 import { IoCartOutline } from 'react-icons/io5'
 import { use } from 'react'
 import { CartContext } from '../../Context/CartContext'
+import { WishListContext } from '../../Context/WishListContext'
 
 export default function Navbar() {
 
 
   const {token , setToken} = useContext(TokenContext)
   const {numCartItems} = useContext(CartContext)
+  const {numWishItems} = useContext(WishListContext)
   const navigate = useNavigate()
   function logoutUser(){
     localStorage.removeItem("token")
@@ -57,7 +59,7 @@ export default function Navbar() {
       <FaLinkedin className='lg:flex hidden hover:text-green-500'/>
       <FaYoutube className='lg:flex hidden hover:text-green-500'/>
       {
-        token && <><NavLink to={"cart"} className="relative" ><IoCartOutline className='text-3xl flex hover:text-green-500'/> <span className='absolute w-3 h-3 flex justify-center items-center rounded-full bg-green-300 p-2 -top-2 -right-2'>{numCartItems}</span></NavLink> <NavLink to={""}><FaRegHeart className='text-2xl flex hover:text-green-500' /></NavLink></>
+        token && <><NavLink to={"cart"} className="relative" ><IoCartOutline className='text-3xl flex hover:text-green-500'/> <span className='absolute w-3 h-3 flex justify-center items-center rounded-full bg-green-300 p-2 -top-2 -right-2'>{numCartItems}</span></NavLink> <NavLink to={"/wishlist"}><FaRegHeart className='text-2xl flex hover:text-green-500 relative' /><span className='absolute w-3 h-3 flex justify-center items-center rounded-full bg-green-300 p-2 right-24 top-3'>{numWishItems}</span></NavLink></>
       }
       </div>
 

@@ -6,11 +6,13 @@ import ProductItem from '../ProductItem/ProductItem';
 import Loader from '../Loader/Loader';
 import toast from 'react-hot-toast';
 import { CartContext } from '../../Context/CartContext';
+import { WishListContext } from '../../Context/WishListContext';
 
 export default function LatestProudcts() {
 
   const [products, setProducts] = useState([])
   const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
+  const {addToWishList , setNumWishItems} = useContext(WishListContext)
 
   async function getProuducts() {
     await axios.get("https://ecommerce.routemisr.com/api/v1/products").then((res)=>{
@@ -30,6 +32,18 @@ export default function LatestProudcts() {
   }
 
 
+
+  async function addWish(id) {
+    let res = await addToWishList(id)
+    if(res.status === "success"){
+      toast.success(res.message)
+      setNumWishItems((res.data?.length)); 
+    }else{
+      toast.error("Something Wrong")
+    }
+  }
+
+
   useEffect(() => {
     getProuducts()
   }, [])
@@ -38,7 +52,7 @@ export default function LatestProudcts() {
   return (
     <div className='flex flex-wrap mx-20 mb-9'>
       {products.length > 0 ? products.map((product) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={product.id}>
-      <ProductItem product = {product} addProduct = {addProduct}/>
+      <ProductItem product = {product} addProduct = {addProduct} addWish = {addWish} wishlist={wishlist}/>
       </div>)):<Loader/>}
     </div>
   )
