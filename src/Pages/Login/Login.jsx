@@ -56,8 +56,11 @@ export default function Login() {
                   <Helmet>
                 <title>FreshCart-Login</title>
                   </Helmet>
-<h1 className='text-3xl text-gray-900 font-bold my-5'>Register Now :</h1>
-{errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
+        <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
+            Register Now :
+            <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
+            </span>
+        </h2>{errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
 <form className="" onSubmit={formik.handleSubmit}>
 
   <div className="mb-5">
@@ -69,6 +72,7 @@ export default function Login() {
     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-600 ">Password :</label>
     <input type="password" id="password" name='password' value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}  className="outline-none rounded-lg border-b-2  focus:border-green-400 text-gray-700 text-sm block w-full p-2.5" placeholder="Enter Your Password" required />
     {(formik.touched.password && formik.errors.password) && (<small className='text-red-500'>{formik.errors.password}</small>)}
+    <Link to={"/forgetpassword"} className='ms-3 font-light hover:text-green-500 hover:underline'>Forget Password</Link>
   </div>
 
 {isloading ? (<button type="button" disabled className="disabled:bg-green-300  text-white bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11">loading ...</button>

@@ -58,8 +58,12 @@ export default function Register() {
                   <Helmet>
                 <title>FreshCart-Home</title>
                   </Helmet>
-<h1 className='text-3xl font-bold my-5 text-gray-900'>Register Now :</h1>
-{errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
+                  <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
+              Register Now :
+              <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
+              </span>
+          </h2>
+          {errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}
 <form className="" onSubmit={formik.handleSubmit}>
   <div className="mb-5">
     <label htmlFor="name" className="block  text-sm font-medium text-gray-600 ">Name :</label>

@@ -23,6 +23,10 @@ import ComingSoon from './Pages/ComingSoon/ComingSoon'
 import SpaBrand from './Pages/SpaBrand/SpaBrand'
 import WishListContextProvider from './Context/WishListContext'
 import WishList from './Pages/WishList/WishList'
+import ForgetPassword from './Pages/ForgetPassword/ForgetPassword'
+import VerifyCode from './Pages/VerifyCode/VerifyCode'
+import ResetPassword from './Pages/ResetPassword/ResetPassword'
+import UpdatePassword from './Pages/UpdatePassword/UpdatePassword'
 
 export default function App() {
 
@@ -40,6 +44,10 @@ export default function App() {
       {path : "comingsoon" , element : <ProtectedRouts><ComingSoon/></ProtectedRouts>},
       {path : "login" , element : <Login/>},
       {path : "register" , element : <Register/>},
+      {path : "forgetpassword" , element : <ForgetPassword/>},
+      {path : "verifycode" , element : <VerifyCode/>},
+      {path : "updatepassword" , element : <UpdatePassword/>},
+      {path : "resetpassword" , element : <ResetPassword/>},
       {path : "productdetails/:prouductId" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
       {path : "spacategory/:categoryId" , element : <ProtectedRouts><SpaCategory/></ProtectedRouts>},
       {path : "spabrand/:brandId" , element : <ProtectedRouts><SpaBrand/></ProtectedRouts>},
