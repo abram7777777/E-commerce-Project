@@ -57,7 +57,7 @@ export default function Login() {
                 <title>FreshCart-Login</title>
                   </Helmet>
         <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
-            Register Now :
+            Login Now :
             <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
             </span>
         </h2>{errorMsg && <div className='bg-red-500 p-3 rounded-md my-2'>{errorMsg}</div>}

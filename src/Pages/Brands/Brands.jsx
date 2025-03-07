@@ -40,7 +40,7 @@ export default function Brands() {
   <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-10 h-full mx-auto">
 
       {brand.length > 0 ? brand.map((sbrand) => (
-  <Link to={`/spabrand/${sbrand._id}`}  key={sbrand._id} className="block">
+  <Link to={`/spabrand/${sbrand._id}`}  key={sbrand._id} className="block"> 
   <img src={sbrand.image} className="shadow-xl rounded-xl -rotate-12 hover:shadow-xl hover:z-10 relative hover:rotate-0 duration-500  h-full w-full object-cover hover:shadow-slate-600 hover:scale-110 sm:hover:scale-125 transform origin-bottom" alt={sbrand.name} />
   </Link>
       )):<Loader/>}

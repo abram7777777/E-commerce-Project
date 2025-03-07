@@ -63,12 +63,12 @@ export default function Electronics() {
     <>
         <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold dark:text-slate-100 text-gray-800 mt-24 group cursor-default my-11">
             Electronics Products
-            <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
+            <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-10 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
             </span>
         </h2>
 
 
-<div className='flex flex-wrap mx-3 justify-center mb-16'>
+<div className='flex flex-wrap mx-5 justify-center mb-16'>
       {electronics.length > 0 ? electronics.map((electronic) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={electronic.id}>
       <ProductItem product = {electronic} addProduct = {addProduct} addWish = {addWish}/>
       </div>)):<Loader/>}

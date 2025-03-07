@@ -8,14 +8,15 @@ export default function Products() {
                   <Helmet>
                 <title>FreshCart-Products</title>
                   </Helmet>
-
-                  <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold dark:text-slate-100 text-gray-800 mt-24 group cursor-default my-3">
+                  <div className="flex flex-col justify-center">
+                  <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold text-gray-800 mt-6 mb-11 group cursor-default ">
     All Products
     <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
     </span>
 </h2>
 
                   <LatestProudcts/>
+                  </div>
     </>
   )
 }

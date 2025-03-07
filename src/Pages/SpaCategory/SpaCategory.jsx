@@ -82,7 +82,7 @@ export default function SpaCategory() {
                     <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
                     </span>
                     </h2>
-    {spaCategory.length > 0 ? <div className='flex flex-wrap mx-11'>
+    {spaCategory.length > 0 ? <div className='flex flex-wrap mx-11 mb-7'>
       {spaCategory.length > 0 ? spaCategory.map((scategory) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={scategory.id}>
       <ProductItem product = {scategory} addProduct = {addProduct} addWish = {addWish}/>
       </div>)):<Loader/>}

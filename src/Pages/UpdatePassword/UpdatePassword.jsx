@@ -55,7 +55,7 @@ export default function UpdatePassword() {
   
       <section className=' w-3/4 mx-auto  p-4 mt-16'>
                     <Helmet>
-                  <title>FreshCart-Login</title>
+                  <title>FreshCart-UpdatePassword</title>
                     </Helmet>
           <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
               Update Password :

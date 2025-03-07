@@ -11,7 +11,7 @@ export default function WhyUs() {
     </span>
 </h2>
 
-<div className=" overflow-hidden px-5  lg:p-10 py-6 rounded-md relative 4xl:container mb-7">
+<div className=" overflow-hidden px-5  lg:p-10  rounded-md relative 4xl:container ">
 
 <div className="grid md:grid-cols-2 items-center gap-16 md:min-h-[340px]">
     <div style={{opacity: 1, transform: 'none', willChange: 'auto'}}>
@@ -31,7 +31,7 @@ export default function WhyUs() {
 </li>
 </ul>
 </div>
-<img src={delivery} className="w-full object-contain rounded-md" />
+<img src={delivery} className="w-full object-contain rounded-md" alt='delivery photo' />
 </div>
 </div>
     </>
@@ -39,4 +39,3 @@ export default function WhyUs() {
 }
 
 
-// bg-gradient-to-tr from-slate-400 via-slate-200 to-slate-300 dark:bg-gradient-to-tr dark:from-slate-950 dark:via-slate-800 dark:to-slate-900

@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import { CartContext } from '../../Context/CartContext'
 import { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 export default function CheckOut() {
 
@@ -58,8 +59,15 @@ export default function CheckOut() {
 
   return (
     <div className=' w-3/4 mx-auto  p-4 mt-16'>
-        <h1 className='text-3xl font-bold my-5 text-gray-900'>CheckOut :</h1>
-    <form className="" onSubmit={formik.handleSubmit}>
+            <Helmet>
+        <title>FreshCart-CheckOut</title>
+      </Helmet>
+                <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold text-gray-800 mt-6 group cursor-default my-11">
+                CheckOut :
+            <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
+            </span>
+        </h2>
+            <form className="" onSubmit={formik.handleSubmit}>
   <div className="mb-5">
     <label htmlFor="details" className="block  text-sm font-medium text-gray-600 ">Details :</label>
     <input type="text" id="details" name='details' value={formik.values.details} onChange={formik.handleChange} onBlur={formik.handleBlur}  className="outline-none rounded-lg  border-b-2  focus:border-green-400 text-gray-700 text-sm block w-full p-2.5" placeholder="Enter Your Details" required />

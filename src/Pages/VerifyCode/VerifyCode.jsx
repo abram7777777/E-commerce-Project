@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useContext, useState } from 'react'
 import { TokenContext } from '../../Context/TokenContext'
 import toast from 'react-hot-toast'
+import { Helmet } from 'react-helmet'
 export default function VerifyCode() {
 
 
@@ -49,6 +50,9 @@ export default function VerifyCode() {
   return (
     <div>
             <div className=' w-3/4 mx-auto  p-4 mt-16'>
+            <Helmet>
+        <title>FreshCart-VerifyCode</title>
+      </Helmet>
         <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
             Enter Reset Code :
             <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">

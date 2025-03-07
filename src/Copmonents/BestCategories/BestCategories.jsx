@@ -32,7 +32,7 @@ export default function BestCategories() {
     <Link to={`/spacategory/${"6439d58a0049ad0b52b9003f"}`}>
 <div className="card group/card relative w-full">
 <div className="wrapper text-center relative group-hover/card:brightness-50 group-hover/card:shadow-2xl group-hover/card:shadow-black drop-shadow-2xl group-hover/card:[transform:perspective(900px)translateY(-5%)rotateX(35deg)translateZ(0)] transition-all duration-500">
-<img src={women} className="w-full " alt="Men's Fashion" />
+<img src={women} className="w-full " alt="women's Fashion" />
 </div>
 <img src={womenlogo} className="w-full opacity-0 group-hover/card:opacity-100 group-hover/card:-translate-y-11 transition-all duration-700 absolute inset-0" alt />
 <span className="text-center block absolute left-0 right-0 mx-auto font-extrabold -bottom-0 group-hover/card:bottom-32 delay-200 text-green-300 p-3 rounded-lg bg-black/65 w-fit text-2xl md:text-3xl lg:text-4xl opacity-0 group-hover/card:opacity-100 transition-all duration-700 ">Men's Fashion</span>

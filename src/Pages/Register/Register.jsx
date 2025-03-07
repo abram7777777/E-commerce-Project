@@ -56,7 +56,7 @@ export default function Register() {
 
     <section className=' w-3/4 mx-auto  p-4 mt-16'>
                   <Helmet>
-                <title>FreshCart-Home</title>
+                <title>FreshCart-Register</title>
                   </Helmet>
                   <h2 class="text-3xl relative w-fit font-extrabold text-gray-800 group cursor-default mb-5">
               Register Now :

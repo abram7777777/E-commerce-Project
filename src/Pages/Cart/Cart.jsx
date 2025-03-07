@@ -45,7 +45,7 @@ export default function Cart() {
 
 
   return (
-    <div className='mt-20 mb-7 w-[93%] mx-auto'>
+    <div className='mt-16 pt-4 pb-7 w-[93%] mx-auto'>
       <Helmet>
         <title>FreshCart-Cart</title>
       </Helmet>
@@ -53,7 +53,7 @@ export default function Cart() {
 
       {cartData ? <>
         <div className='flex justify-between'>
-        <h2 class="text-4xl sm:text-5xl relative w-fit font-extrabold dark:text-slate-100 text-gray-800 group cursor-default ">
+        <h2 class="text-4xl sm:text-5xl relative w-fit font-extrabold  text-gray-800 group cursor-default ">
                 Shopping Cart
             <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
             </span>

@@ -24,11 +24,12 @@ export default function Categories() {
 
   return (
     <>
+    
                   <Helmet>
                 <title>FreshCart-Categories</title>
                   </Helmet>
-
-                  <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold dark:text-slate-100 text-gray-800 mt-24 group cursor-default">
+                  <div className="flex flex-col justify-center">
+                  <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold dark:text-slate-100 text-gray-800 mt-6 group cursor-default">
                     Shop By Category
                     <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
                     </span>
@@ -45,7 +46,7 @@ export default function Categories() {
     </Link>
       )):<Loader/>}
       </div>
-                  
+      </div>   
 
     </>
   )

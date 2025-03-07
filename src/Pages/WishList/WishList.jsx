@@ -6,6 +6,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { IoCartOutline } from 'react-icons/io5'
 import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
+import { Helmet } from 'react-helmet'
 
 export default function WishList() {
 
@@ -59,14 +60,18 @@ export default function WishList() {
 
 
   return (
-    <div className='mx-16'>
-                <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold dark:text-slate-100 text-gray-800 mt-24 group cursor-default my-11">
+    
+    <div className='mx-16 pt-1 pb-7'>
+            <Helmet>
+        <title>FreshCart-Wishlist</title>
+      </Helmet>
+                <h2 class="text-4xl sm:text-5xl relative mx-auto w-fit font-extrabold text-gray-800 mt-6 group cursor-default my-11">
                 Your Wishlist
             <span class="absolute bottom-0 left-0 right-0 h-1/2 bg-green-300 -z-30 group-hover:h-[90%] group-hover:scale-y-110 transition-all duration-500">
             </span>
         </h2>
           {wishListData ? <>
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-5">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg ">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -107,7 +112,7 @@ export default function WishList() {
                   </td>
                 </tr>)) :
                 <>
-                  <div className='p-5 flex justify-between items-center w-full '><p>No Products Yet ...</p> <Link to={"/products"} className='underline hover:text-green-400 text-green-500'>All Products</Link></div>
+                  <div className='p-5  flex justify-between items-center w-full '><p>No Products Yet ...</p> <Link to={"/products"} className='underline hover:text-green-400 text-green-500'>All Products</Link></div>
                 </>}
             </tbody>
           </table>

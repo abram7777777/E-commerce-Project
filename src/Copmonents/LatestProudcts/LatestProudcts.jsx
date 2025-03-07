@@ -50,7 +50,7 @@ export default function LatestProudcts() {
   
 
   return (
-    <div className='flex flex-wrap mx-20 mb-9'>
+    <div className='flex flex-wrap mx-9 mb-9'>
       {products.length > 0 ? products.map((product) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={product.id}>
       <ProductItem product = {product} addProduct = {addProduct} addWish = {addWish} />
       </div>)):<Loader/>}
