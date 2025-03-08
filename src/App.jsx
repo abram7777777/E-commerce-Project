@@ -26,8 +26,6 @@ import WishList from './Pages/WishList/WishList'
 import ForgetPassword from './Pages/ForgetPassword/ForgetPassword'
 import VerifyCode from './Pages/VerifyCode/VerifyCode'
 import ResetPassword from './Pages/ResetPassword/ResetPassword'
-import UpdatePassword from './Pages/UpdatePassword/UpdatePassword'
-
 export default function App() {
 
   const routes = createBrowserRouter([{
@@ -46,7 +44,6 @@ export default function App() {
       {path : "register" , element : <Register/>},
       {path : "forgetpassword" , element : <ForgetPassword/>},
       {path : "verifycode" , element : <VerifyCode/>},
-      {path : "updatepassword" , element : <UpdatePassword/>},
       {path : "resetpassword" , element : <ResetPassword/>},
       {path : "productdetails/:prouductId" , element : <ProtectedRouts><ProductDetails/></ProtectedRouts>},
       {path : "spacategory/:categoryId" , element : <ProtectedRouts><SpaCategory/></ProtectedRouts>},

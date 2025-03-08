@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import comingsoon from "../../assets/pngtree-coming-soon-green-png-image_6863508.png"
 import { IoArrowBackCircle, IoHome } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 
-export default function ComingSoon() {
+export default function ComingSoon({callback}) {
 
     const navigate = useNavigate()
 
@@ -11,9 +11,10 @@ export default function ComingSoon() {
         navigate("/")
     }
     function back(){
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        navigate("/categories") 
+        callback === "category" ? navigate("/categories") : navigate("/brands") 
     }
+
+    
 
 
   return (

@@ -14,7 +14,7 @@ export default function WishList() {
 
   const {getLoggedWishList , removeWishItem , setNumWishItems} = useContext(WishListContext)
     const [wishListData, setWishListData] = useState(null)
-      const {addToCart} = useContext(CartContext)
+    const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
     
   
 
@@ -29,6 +29,8 @@ export default function WishList() {
     let res = await addToCart(id)
     if(res.status === "success"){
       toast.success(res.message)
+      setNumCartItems(res.numOfCartItems);
+      setCartId(res.cartId);
     }else{
       toast.error("Something Wrong")
 
@@ -105,7 +107,7 @@ export default function WishList() {
                     {product.price}EGp
                   </td>
                   <td className="px-6 py-4">
-                                      <button onClick={()=>{addProduct(product.id)}} className=' ms-8 mb-1 w-[60%] bg-gradient-to-r from-green-300 to-green-500 text-white hover:bg-gradient-to-r hover:from-green-500 hover:to-green-300 rounded-full font-bold transition-all duration-700 py-2 '><IoCartOutline className='inline-block me-2 text-2xl' />Add to cart</button>
+                                      <button onClick={()=>{addProduct(product.id)}} className='me-9 mb-1 w-full bg-gradient-to-r from-green-300 to-green-500 text-white hover:bg-gradient-to-r hover:from-green-500 hover:to-green-300 rounded-full font-bold transition-all duration-700 py-2 '><IoCartOutline className='inline-block me-2 text-2xl' />Add to cart</button>
                   </td>
                   <td className="px-6 py-4">
                     <button onClick={() => { deleteItem(product.id) }}><FaTrashAlt className='text-red-600 text-2xl' /></button>

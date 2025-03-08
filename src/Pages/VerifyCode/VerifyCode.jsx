@@ -70,7 +70,7 @@ export default function VerifyCode() {
 ):(<button type="submit" disabled={!formik.isValid} className="disabled:bg-green-300  text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Done</button>
 )}
 
-{!errorMsg ? (<button onClick={()=>{navigate("/updatepassword")}} className="ms-3 text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Update Paasword</button>) : "" }
+{!errorMsg ? (<button onClick={()=>{navigate("/resetpassword")}} className="ms-3 text-white bg-green-500 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-11 transition-all duration-300">Reset Password</button>) : "" }
     
     </form>
     </div>

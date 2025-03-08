@@ -11,8 +11,9 @@ import { WishListContext } from '../../Context/WishListContext';
 export default function LatestProudcts() {
 
   const [products, setProducts] = useState([])
+  const [wishProductsClicked, setWishProductsClicked] = useState([])
   const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
-  const {addToWishList , setNumWishItems} = useContext(WishListContext)
+  const {addToWishList , setNumWishItems , getLoggedWishList , removeWishItem} = useContext(WishListContext)
 
   async function getProuducts() {
     await axios.get("https://ecommerce.routemisr.com/api/v1/products").then((res)=>{
@@ -33,26 +34,44 @@ export default function LatestProudcts() {
 
 
 
-  async function addWish(id) {
-    let res = await addToWishList(id)
-    if(res.status === "success"){
-      toast.success(res.message)
-      setNumWishItems((res.data?.length)); 
+
+  async function getWishListProducts(){
+    const data = await getLoggedWishList()
+    const wishProducts = data?.data.map(product => product._id)
+    setWishProductsClicked(wishProducts)
+        
+  }
+
+  async function toggleWishListProducts(id){
+    if(wishProductsClicked.includes(id)){
+      const data = await removeWishItem(id)
+      setWishProductsClicked(data.data)
+      toast.error(data.message) 
+      setNumWishItems((data.data?.length));       
     }else{
-      toast.error("Something Wrong")
+      const data = await addToWishList(id)
+      setWishProductsClicked(data.data)
+      toast.success(data.message)
+      setNumWishItems((data.data?.length));       
     }
   }
 
 
   useEffect(() => {
     getProuducts()
+    getWishListProducts()
   }, [])
+
+  useEffect(() => {
+    getWishListProducts()
+  }, [wishProductsClicked])
+  
   
 
   return (
     <div className='flex flex-wrap mx-9 mb-9'>
       {products.length > 0 ? products.map((product) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={product.id}>
-      <ProductItem product = {product} addProduct = {addProduct} addWish = {addWish} />
+      <ProductItem product = {product} addProduct = {addProduct} wishProductsClicked={wishProductsClicked} toggleWishListProducts={toggleWishListProducts} />
       </div>)):<Loader/>}
     </div>
   )

@@ -16,8 +16,9 @@ export default function Electronics() {
 
     const [products, setProducts] = useState([])
     const [electronics, setElectronics] = useState([])
+    const [wishProductsClicked, setWishProductsClicked] = useState([])
     const {addToCart , setNumCartItems , setCartId} = useContext(CartContext)
-      const {addToWishList , setNumWishItems} = useContext(WishListContext)
+    const {addToWishList , setNumWishItems , getLoggedWishList , removeWishItem} = useContext(WishListContext)
     
     
     
@@ -40,21 +41,39 @@ export default function Electronics() {
         }
       }
 
-      async function addWish(id) {
-        let res = await addToWishList(id)
-        if(res.status === "success"){
-          toast.success(res.message)
-          setNumWishItems((res.data?.length));        
+
+      async function getWishListProducts(){
+        const data = await getLoggedWishList()
+        const wishProducts = data?.data.map(product => product._id)
+        setWishProductsClicked(wishProducts)
+            
+      }
+    
+      async function toggleWishListProducts(id){
+        if(wishProductsClicked.includes(id)){
+          const data = await removeWishItem(id)
+          setWishProductsClicked(data.data)
+          toast.error(data.message) 
+          setNumWishItems((data.data?.length));       
         }else{
-          toast.error("Something Wrong")
+          const data = await addToWishList(id)
+          setWishProductsClicked(data.data)
+          toast.success(data.message)
+          setNumWishItems((data.data?.length));       
         }
       }
-
-
-              useEffect(() => {
-                  getProuducts()
-              }, [])
-
+    
+    
+      useEffect(() => {
+        getProuducts()
+        getWishListProducts()
+      }, [])
+    
+      useEffect(() => {
+        getWishListProducts()
+      }, [wishProductsClicked])
+      
+      
               useEffect(() => {
                 setElectronics(products.filter((product) => product.category?.name === "Electronics" ))
               }, [products])
@@ -70,7 +89,7 @@ export default function Electronics() {
 
 <div className='flex flex-wrap mx-5 justify-center mb-16'>
       {electronics.length > 0 ? electronics.map((electronic) => (<div className='w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4' key={electronic.id}>
-      <ProductItem product = {electronic} addProduct = {addProduct} addWish = {addWish}/>
+      <ProductItem product = {electronic} addProduct = {addProduct} wishProductsClicked={wishProductsClicked} toggleWishListProducts={toggleWishListProducts}/>
       </div>)):<Loader/>}
 
 </div>
